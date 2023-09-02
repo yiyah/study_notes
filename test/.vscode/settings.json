@@ -1,0 +1,7 @@
+{
+    "cortex-debug.variableUseNaturalFormat": true,
+    "files.associations": {
+        "stdio.h": "c",
+        "usart.h": "c"
+    }
+}
