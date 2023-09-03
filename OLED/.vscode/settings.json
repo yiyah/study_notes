@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "usart.h": "c",
+        "main.h": "c",
+        "stm32f1xx_hal.h": "c",
+        "oled.h": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "vector": "c",
+        "font.h": "c"
+    }
+}
