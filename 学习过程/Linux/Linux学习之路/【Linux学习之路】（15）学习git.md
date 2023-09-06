@@ -441,7 +441,7 @@ git blame xxx.c     # 查看某个文件的每一行的 最后一次 修改是�
     ```shell
     git push -u origin master # 第一次提交，-u 是指定默认主机 origin
     git push origin master # 以后提交
-    // 想想在公司是 git push mediatek.dtv HEAD:refs/for/branchName
+    // 想想在公司是 git push mtk.dtv HEAD:refs/for/branchName
     // 所以，origin 是远程仓库的地址，因为在上一步相当于给它起了个名字
     ```
 
