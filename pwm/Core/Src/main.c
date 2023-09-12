@@ -33,7 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+uint16_t pwma = 0;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -55,32 +55,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void delay_init()
-{
-    // clock: 72M
-    HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
-    SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;  // disable systick
-    SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk; // disable interrupt
-    SysTick->VAL = 0;
-}
-// us: f=1M
-void delay_us()
-{
-    uint32_t tmp;
-    SysTick->LOAD = 7200;
-    SysTick->VAL = 0;
 
-    SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
-    // while(!(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk));
-    do
-    {
-        /* code */
-        tmp = SysTick->CTRL;
-    } while (!(tmp&(1<<16)));
-    
-    SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;  // disable systick
-
-}
 /* USER CODE END 0 */
 
 /**
@@ -111,21 +86,37 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  delay_init();
-  MX_TIM2_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   /* USER CODE END 2 */
-    
-    // SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;  // disable systick
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  
   while (1)
   {
-    HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, GPIO_PIN_8);
-    // delay_us();
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 2880);
+  while(1);
+pwma+=100;
 
-    // HAL_Delay(100);
+HAL_Delay(100);
+
+if (pwma >= 7300)
+{
+    while(1)
+    {
+        pwma-=100;
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, pwma);
+HAL_Delay(60);
+
+        if(pwma == 0)
+        {
+            break;
+        }
+    }
+    
+}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
