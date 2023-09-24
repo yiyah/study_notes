@@ -2,7 +2,7 @@
 
 [TOC]
 
-## SOMEthing 使用
+## something 使用
 
 * 快捷键
 
@@ -108,6 +108,8 @@ ssh-keygen -t rsa  # ~/.ssh/ 一直回车就好
 
 PL: Powerline Ligature 应该是这个缩写
 
+> Cascadia Code和 Cascadia mono是两种等宽字体，都是由 Microsoft 推出的。它们的主要区别是，Cascadia Code 支持编程连字，而 Cascadia mono 不支持。编程连字是一种将多个字符自动组合成一个符号的功能，有些开发者认为这样可以提高代码的可读性1。例如，=> 可以变成 ⇒，!= 可以变成 ≠，等等。如果你喜欢使用编程连字，你可以选择 Cascadia Code；如果你不喜欢或不需要，你可以选择 Cascadia mono。 ---from Bing GPT-4
+
 `Crtl + Shift + P` 后输入 `settings.json` 打开 settings.json（看清有一个是默认的 json 我们可以参考）
 
 配置如下：
@@ -120,6 +122,11 @@ PL: Powerline Ligature 应该是这个缩写
     "editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace",
     // 连字
     "editor.fontLigatures": true,
+
+    // tab 键补全多少空格，注意下面两行一起
+    // 否则有些文件 补全不会用空格
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
 
     // 选中相同内容高亮
     "workbench.colorCustomizations": {

@@ -23,6 +23,7 @@ git config --global user.email "756307810@qq.com"
 git config --global core.editor vim  // 修改 git 的默认编辑器
 
 # --global配置对当前用户生效，如果需要对所有用户生效，则用--system
+git config --list user.name // 查看配置
 ```
 
 ## 三、绑定你的电脑和 Git 账号
@@ -262,6 +263,10 @@ git blame xxx.c     # 查看某个文件的每一行的 最后一次 修改是�
 * commit
 
     ```shell
+    # 查看
+    git config commit.template # 查看当前仓库 该变量的值
+
+    # 修改
     git config commit.template xxx.template # 只对当前仓库有空
     git config --global commit.template xxx.template # 全局
     ```
@@ -441,7 +446,7 @@ git blame xxx.c     # 查看某个文件的每一行的 最后一次 修改是�
     ```shell
     git push -u origin master # 第一次提交，-u 是指定默认主机 origin
     git push origin master # 以后提交
-    // 想想在公司是 git push mtk.dtv HEAD:refs/for/branchName
+    // 想想在公司是 git push mediatek.dtv HEAD:refs/for/branchName
     // 所以，origin 是远程仓库的地址，因为在上一步相当于给它起了个名字
     ```
 

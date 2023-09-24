@@ -358,6 +358,10 @@ grep -rn "234" *          # * 代表查找当前目录下的所有文件和目�
 which pwd
 whereis pwd # 详细点，把 man 手册也找出来
 
+## 31. fdisk
+
+fdisk -l 列出来的意思
+
 ## 参考
 
 1. [情景linux--wc -l是用来统计文件行数的吗？](https://www.jianshu.com/p/19d97bd9f9d5)
@@ -365,3 +369,4 @@ whereis pwd # 详细点，把 man 手册也找出来
 3. [tar命令的详细解释](https://blog.csdn.net/eroswang/article/details/5555415)
 4. [ubuntu：查看ubuntu系统的版本信息](https://blog.csdn.net/whbing1471/article/details/52074390)
 5. [如何检查树莓派的硬件版本号和型号](https://www.cnblogs.com/cloudrivers/p/11443280.html)
+6. [what all means in fdisk -l](https://www.linuxquestions.org/questions/linux-newbie-8/what-all-means-in-fdisk-l-765730/#post3738976)
